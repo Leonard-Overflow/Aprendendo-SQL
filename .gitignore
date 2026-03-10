@@ -1,0 +1,20 @@
+# PyCharm
+.idea/
+__pycache__/
+*.pyc
+*.pyo
+
+# Backups
+*.bak
+
+# Bancos locais
+*.db
+*.sqlite
+
+# Sistema operacional
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Registros
+*.log

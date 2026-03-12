@@ -24,6 +24,10 @@ cursor = conn.cursor() # O cursor é o responsavel por executar os scripts SQL
 # Modificando a tabela
 # cursor.execute("ALTER TABLE usuarios ADD COLUMN id INTEGER")
 
+
+
+# CRIANDO DADOS(CREATE)
+
 # Inserindo valores
 #cursor.execute("INSERT INTO usuarios ('nome', 'email') VALUES ('Pedro', 'pedro@email.com')")
 
@@ -37,6 +41,18 @@ cursor = conn.cursor() # O cursor é o responsavel por executar os scripts SQL
 # cursor.executemany("INSERT INTO usuarios ('nome', 'email') VALUES (?, ?)", dados)
 
 
+
+# LENDO(READ)
+
+# Ler toda a tabela
+# dados = cursor.execute("SELECT * FROM usuarios")
+# print(dados.fetchall())
+
+# Ler itens específicos
+dados = cursor.execute('SELECT * FROM usuarios WHERE id = 1')
+print(dados.fetchall())
+dados2 = cursor.execute('SELECT * FROM usuarios WHERE email = "pedro@email.com"')
+print(dados2.fetchall())
 
 # Envia os dados para o banco
 conn.commit()

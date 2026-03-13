@@ -24,8 +24,6 @@ cursor = conn.cursor() # O cursor é o responsavel por executar os scripts SQL
 # Modificando a tabela
 # cursor.execute("ALTER TABLE usuarios ADD COLUMN id INTEGER")
 
-
-
 # CRIANDO DADOS(CREATE)
 
 # Inserindo valores
@@ -49,10 +47,30 @@ cursor = conn.cursor() # O cursor é o responsavel por executar os scripts SQL
 # print(dados.fetchall())
 
 # Ler itens específicos
-dados = cursor.execute('SELECT * FROM usuarios WHERE id = 1')
-print(dados.fetchall())
-dados2 = cursor.execute('SELECT * FROM usuarios WHERE email = "pedro@email.com"')
-print(dados2.fetchall())
+# dados = cursor.execute('SELECT * FROM usuarios WHERE id = 1')
+# print(dados.fetchall())
+# dados2 = cursor.execute('SELECT * FROM usuarios WHERE email = "pedro@email.com"')
+# print(dados2.fetchall())
+
+
+
+# ATUALIZANDO DADOS(UPDATE)
+
+# Atualizar um valor único
+
+cursor.execute("UPDATE usuarios SET idade = 18 WHERE nome = 'Leonardo'")
+
+# Atualizar várias colunas
+
+cursor.execute("UPDATE usuarios SET idade = 18, localizacao = 'Campinas', salario = 1700.00, status = 1 WHERE nome = 'Pedro'")
+
+# Atualizar com condição
+
+# Com base no valor atual
+
+# Com subquerry
+
+# Lista com vários valores
 
 # Envia os dados para o banco
 conn.commit()

@@ -58,19 +58,41 @@ cursor = conn.cursor() # O cursor é o responsavel por executar os scripts SQL
 
 # Atualizar um valor único
 
-cursor.execute("UPDATE usuarios SET idade = 18 WHERE nome = 'Leonardo'")
+#cursor.execute("UPDATE usuarios SET idade = 18 WHERE nome = 'Leonardo'")
 
 # Atualizar várias colunas
 
-cursor.execute("UPDATE usuarios SET idade = 18, localizacao = 'Campinas', salario = 1700.00, status = 1 WHERE nome = 'Pedro'")
+#cursor.execute("UPDATE usuarios SET idade = 18, localizacao = 'Campinas', salario = 1700.00, status = 1 WHERE nome = 'Pedro'")
 
 # Atualizar com condição
 
+# cursor.execute('''
+#     UPDATE usuarios SET salario = CASE
+#         WHEN id  IN (1, 2) THEN 4500.00
+#         WHEN id  IN (5, 6) THEN 3500.00
+#         WHEN status IS null THEN 1
+#     END;
+# ''')
+
 # Com base no valor atual
+
+#cursor.execute("UPDATE usuarios SET salario = salario * 1.15 WHERE id = 2 or 3")
 
 # Com subquerry
 
+# cursor.execute('''
+#     UPDATE usuarios
+#     SET salario = (SELECT AVG(salario) FROM usuarios)
+#     WHERE nome =  'Thomas Nield'
+# ''')
+
 # Lista com vários valores
+
+# cursor.execute('''
+#     UPDATE usuarios
+#     SET status = 0
+#     WHERE nome IN ('Vitor', 'Rafael', 'Julio')
+# ''')
 
 # Envia os dados para o banco
 conn.commit()

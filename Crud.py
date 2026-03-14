@@ -21,9 +21,6 @@ cursor = conn.cursor() # O cursor é o responsavel por executar os scripts SQL
 # BLOB(Arquivos brutos que não são texto Ex: .jpg)
 # NULL Valor vazio
 
-# Modificando a tabela
-# cursor.execute("ALTER TABLE usuarios ADD COLUMN id INTEGER")
-
 # CRIANDO DADOS(CREATE)
 
 # Inserindo valores
@@ -44,17 +41,37 @@ cursor = conn.cursor() # O cursor é o responsavel por executar os scripts SQL
 
 # Ler toda a tabela
 # dados = cursor.execute("SELECT * FROM usuarios")
-# print(dados.fetchall())
 
-# Ler itens específicos
-# dados = cursor.execute('SELECT * FROM usuarios WHERE id = 1')
-# print(dados.fetchall())
-# dados2 = cursor.execute('SELECT * FROM usuarios WHERE email = "pedro@email.com"')
-# print(dados2.fetchall())
+# Selecionando dados
+#cursor.execute("SELECT * FROM usuarios WHERE salario = 3000")
 
+# Ler dados específicos
+#cursor.execute("SELECT nome, email FROM usuarios")
 
+# Usando AS
+#cursor.execute("SELECT * FROM (SELECT COUNT(*) AS total_de_usuarios FROM usuarios) AS total") cria outra tabela temporaria chamada total com uma colunas total de usuarios
+
+# Usando ORDER BY
+#cursor.execute("SELECT * FROM usuarios ORDER BY nome ASC") Crescnte. Padrão pode omitir o ASC
+#cursor.execute("SELECT * FROM usuarios ORDER BY nome DESC") Decrescente.
+#cursor.execute("SELECT nome, localizacao, email FROM usuarios ORDER BY 2") organiza por localizacao
+#cursor.execute("SELECT * FROM usuarios ORDER BY  email ASC NULLS LAST/FIRST")
+
+# Limitando resultados
+
+# Usando Subquerries
+
+# Usando UNION
+#cursor.execute("SELECT nome FROM clientes UNION SELECT nome FROM fornecedores") remove as  duplicatas
+#cursor.execute("SELECT nome FROM clientes UNION ALL SELECT nome FROM fornecedores") matem as  duplicatas
+
+# Window functions
 
 # ATUALIZANDO DADOS(UPDATE)
+
+# Atualizando a estrutura da tabela
+
+# cursor.execute("ALTER TABLE usuarios ADD COLUMN id INTEGER")
 
 # Atualizar um valor único
 
@@ -94,7 +111,24 @@ cursor = conn.cursor() # O cursor é o responsavel por executar os scripts SQL
 #     WHERE nome IN ('Vitor', 'Rafael', 'Julio')
 # ''')
 
-# Envia os dados para o banco
+
+
+# DELETE
+
+# Deletando dados específicos
+#cursor.exeute("DELETE FROM usuarios WHERE id = 10")
+#cursor.exeute("DELETE FROM usuarios WHERE nome = 'Leonardo'")
+#cursor.exeute("DELETE FROM usuarios WHERE email = julio@email.com")
+
+# Limpando tabelas
+#cursor.execute("DELETE FROM clientes")
+#cursor.execute("TRUNCATE TABLE usuarios")
+
+# Deletando tabelas
+#cursor.execute("DROP TABLE usuarios")
+#cursor.execute("DROP TABLE IF EXISTES usuarios") Apaga com verificação
+
+# Envia as modificações para o banco
 conn.commit()
 
 # Fecha conexão

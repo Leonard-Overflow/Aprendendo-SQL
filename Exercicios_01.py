@@ -14,14 +14,38 @@ cursor = conn.cursor()
 # salario (REAL) e ativo (INTEGER). Em seguida, use ALTER TABLE para
 # adicionar a coluna email.
 
-cursor.execute('''
-    CREATE TABLE alunos(
-        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-        nome TEXT NOT NULL,
-        idade INTEGER NOT NULL,
-        nota REAL NOT NULL
-    );
-''')
+# cursor.execute('''
+#     CREATE TABLE alunos(
+#         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+#         nome TEXT NOT NULL,
+#         idade INTEGER NOT NULL,
+#         nota REAL NOT NULL
+#     );
+# ''')
+
+# cursor.execute('''
+#     CREATE TABLE produtos (
+#         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+#         nome TEXT NOT NULL,
+#         preco REAL NOT NULL,
+#         estoque INTEGER NOT NULL,
+#         disponivel INTEGER NOT NULL
+#     );
+# ''')
+
+# cursor.execute('''
+#     CREATE TABLE funcionarios (
+#         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+#         nome TEXT NOT NULL,
+#         departamento TEXT NOT NULL,
+#         salario REAL NOT NULL,
+#         ativo INTEGER NOT NULL
+#     );
+# ''')
+#
+# cursor.execute('''
+#         ALTER TABLE funcionarios ADD COLUMN email TEXT NOT NULL;
+# ''')
 
 
 

@@ -47,6 +47,45 @@ cursor = conn.cursor()
 #         ALTER TABLE funcionarios ADD COLUMN email TEXT NOT NULL;
 # ''')
 
+# INSERT
+# 4. Insira 3 alunos na tabela alunos usando três chamadas separadas de cursor.execute().
+# 5. Insira 3 alunos anterior usando executemany() com uma lista de tuplas.
+# 6. Insira 5 funcionários na tabela funcionarios de departamentos diferentes (ex: TI,
+# RH, Financeiro) usando executemany().
+# 7. Insira 4 produtos na tabela produtos, sendo que dois deles devem ter disponivel = 0.
+
+#cursor.execute("INSERT INTO alunos (nome, idade, nota) VALUES (?, ?, ?)", ('Felipe',17, 9.5))
+# cursor.execute("INSERT INTO alunos (nome, idade, nota) VALUES (?, ?, ?)", ('Maria Fernanda',16, 7.5))
+# cursor.execute("INSERT INTO alunos (nome, idade, nota) VALUES (?, ?, ?)", ('Vitor Hugo',17, 5.0))
+
+# alunos = [('Pedro', 18, 7.0), ('Bianca', 17, '9.0'), ('Rafaela', 17, 8.0)]
+#
+# cursor.executemany('''
+#     INSERT INTO alunos (nome, idade, nota)
+#     VALUES (?, ?, ?)
+# ''', alunos)
+
+# funcionarios = [('Anderson', 'TI', 2700.00, 1, 'andy@email.com'),
+#                 ('Gustavo', 'Financeiro', 3000.00, 1, 'gustavo@email.com'),
+#                 ('Rodrigo', 'Administrativo', 4500.00, 0, 'rodrigo@email.com'),
+#                 ('Fernanda', 'Administrativo', 4500.00, 1, 'fer@email.com'),
+#                 ('Flavia', 'Financeiro', 3000.00, 1, 'flavia@email.com')]
+#
+# cursor.executemany('''
+#     INSERT INTO funcionarios (nome, departamento, salario, ativo, email)
+#     VALUES (?, ?, ?, ?, ?)
+# ''', funcionarios)
+
+# produtos = [('Celuar', 2100.00, 35, 1),
+#             ('Notebook', 3200.00, 0, 0),
+#             ('Capinha', 60.00, 0, 0),
+#             ('Fone', 120.00, 15, 1)]
+#
+# cursor.executemany('''
+#     INSERT INTO produtos (nome, preco, estoque, disponivel)
+#     VALUES (?, ?, ?, ?)
+# ''',  produtos)
+
 
 
 conn.commit()

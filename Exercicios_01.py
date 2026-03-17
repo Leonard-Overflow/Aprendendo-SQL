@@ -5,6 +5,11 @@ import sqlite3
 conn = sqlite3.connect('Escola.db')
 cursor = conn.cursor()
 
+
+
+
+
+
 # Conexão e Criação de Tabelas
 # 1. Crie uma conexão com um banco chamado escola.db e crie uma tabela
 # alunos com as colunas: id, nome, idade e nota (REAL).
@@ -47,6 +52,11 @@ cursor = conn.cursor()
 #         ALTER TABLE funcionarios ADD COLUMN email TEXT NOT NULL;
 # ''')
 
+
+
+
+
+
 # INSERT
 # 4. Insira 3 alunos na tabela alunos usando três chamadas separadas de cursor.execute().
 # 5. Insira 3 alunos anterior usando executemany() com uma lista de tuplas.
@@ -87,6 +97,53 @@ cursor = conn.cursor()
 # ''',  produtos)
 
 
+
+
+
+# SELECT
+# 8. Selecione todos os dados da tabela funcionarios.
+# 9. Selecione apenas nome e salario de todos os funcionários.
+# 10. Selecione todos os funcionários do departamento 'TI' usando WHERE.
+# 11. Selecione todos os produtos com estoque > 10.
+# 12. Selecione os funcionários ordenados pelo salario em ordem decrescente.
+# 13. Selecione os alunos ordenados pelo nome em ordem crescente.
+# 14. Selecione todos os funcionários ordenados por departamento e, dentro de
+# cada departamento, por salário decrescente (use ORDER BY com duas colunas).
+# 15. Use SELECT COUNT(*) AS total_funcionarios para contar o total de funcionários,
+# usando uma subquery para que o resultado apareça em uma coluna chamada total_funcionarios.
+# 16. Crie uma tabela clientes com apenas a coluna nome e insira 3 nomes.
+# Em seguida, crie uma tabela fornecedores também com nome e insira 3 nomes
+# (com 1 repetido). Use UNION para listar todos os nomes sem duplicatas e depois
+# UNION ALL para listar com duplicatas.
+
+#cursor.execute("SELECT * FROM funcionarios")
+
+# cursor.execute("SELECT salario FROM funcionarios")
+# salarios = cursor.fetchall()
+# print(salarios)
+# cursor.execute("SELECT nome FROM funcionarios")
+# nomes = cursor.fetchall()
+# print(nomes)
+
+# cursor.execute("SELECT * FROM funcionarios WHERE departamento = 'TI'")
+# departamento = cursor.fetchone()
+# print(departamento)
+
+# cursor.execute("SELECT * FROM produtos WHERE estoque > 10")
+# produtos = cursor.fetchall()
+# print(produtos)
+
+# cursor.execute("SELECT * FROM funcionarios ORDER BY salario DESC")
+# for linha in cursor.fetchall():
+#     print(linha)
+
+# cursor.execute("SELECT * FROM alunos ORDER BY nome ASC")
+# alunos = cursor.fetchall()
+# print(alunos)
+
+cursor.execute("SELECT COUNT(*) FROM funcionarios AS total_funcionarios")
+total_funcionarios = cursor.fetchall()
+print(total_funcionarios)
 
 conn.commit()
 conn.close()

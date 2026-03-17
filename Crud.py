@@ -21,6 +21,9 @@ cursor = conn.cursor() # O cursor é o responsavel por executar os scripts SQL
 # BLOB(Arquivos brutos que não são texto Ex: .jpg)
 # NULL Valor vazio
 
+
+
+
 # CRIANDO DADOS(CREATE)
 
 # Inserindo valores
@@ -37,15 +40,17 @@ cursor = conn.cursor() # O cursor é o responsavel por executar os scripts SQL
 
 
 
+
+
 # LENDO(READ)
 
 # Ler toda a tabela
 # dados = cursor.execute("SELECT * FROM usuarios")
 
-# Selecionando dados
+# Selecionando dados específicos
 #cursor.execute("SELECT * FROM usuarios WHERE salario = 3000")
 
-# Ler dados específicos
+# Ler dados de colunas específicas
 #cursor.execute("SELECT nome, email FROM usuarios")
 
 # Usando AS
@@ -70,19 +75,15 @@ cursor = conn.cursor() # O cursor é o responsavel por executar os scripts SQL
 # ATUALIZANDO DADOS(UPDATE)
 
 # Atualizando a estrutura da tabela
-
 # cursor.execute("ALTER TABLE usuarios ADD COLUMN id INTEGER")
 
 # Atualizar um valor único
-
 #cursor.execute("UPDATE usuarios SET idade = 18 WHERE nome = 'Leonardo'")
 
 # Atualizar várias colunas
-
 #cursor.execute("UPDATE usuarios SET idade = 18, localizacao = 'Campinas', salario = 1700.00, status = 1 WHERE nome = 'Pedro'")
 
 # Atualizar com condição
-
 # cursor.execute('''
 #     UPDATE usuarios SET salario = CASE
 #         WHEN id  IN (1, 2) THEN 4500.00
@@ -110,6 +111,8 @@ cursor = conn.cursor() # O cursor é o responsavel por executar os scripts SQL
 #     SET status = 0
 #     WHERE nome IN ('Vitor', 'Rafael', 'Julio')
 # ''')
+
+
 
 
 

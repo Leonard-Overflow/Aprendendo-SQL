@@ -54,7 +54,7 @@ cursor = conn.cursor() # O cursor é o responsavel por executar os scripts SQL
 #cursor.execute("SELECT nome, email FROM usuarios")
 
 # Usando AS
-#cursor.execute("SELECT * FROM (SELECT COUNT(*) AS total_de_usuarios FROM usuarios) AS total") cria outra tabela temporaria chamada total com uma colunas total de usuarios
+#cursor.execute("SELECT COUNT(*) AS total_funcionarios FROM funcionarios") Cria uma coluna total_funcionarios e armazena ototal de funcionarios cadastrados
 
 # Usando ORDER BY
 #cursor.execute("SELECT * FROM usuarios ORDER BY nome ASC") Crescnte. Padrão pode omitir o ASC

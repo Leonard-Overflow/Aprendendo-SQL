@@ -141,9 +141,45 @@ cursor = conn.cursor()
 # alunos = cursor.fetchall()
 # print(alunos)
 
-cursor.execute("SELECT COUNT(*) FROM funcionarios AS total_funcionarios")
-total_funcionarios = cursor.fetchall()
-print(total_funcionarios)
+# cursor.execute("SELECT COUNT(*) AS total_funcionarios FROM funcionarios")
+# total_funcionarios = cursor.fetchall()
+# print(total_funcionarios)
+
+# cursor.execute('''
+#     CREATE TABLE clientes (
+#         nome TEXT NOT NULL
+#     );
+# ''')
+
+# cursor.execute('''
+#     CREATE TABLE fornecedores(
+#         nome TEXT NOT NULL
+#     );
+# ''')
+
+# nomes = ["Pedro", "Rafael", "Rafael"]
+# for nome in nomes:
+#     cursor.execute("INSERT INTO clientes (nome) VALUES (?)", (nome,))
+
+# nomes = ["Ana", "Rodrigo", "Flavia"]
+# for nome in nomes:
+#     cursor.execute("INSERT INTO fornecedores (nome) VALUES (?)", (nome,))
+
+cursor.execute('''
+    SELECT nome FROM clienteS
+    UNION ALL
+    SELECT nome FROM fornecedores
+''')
+nomes = cursor.fetchall()
+print(nomes)
+
+cursor.execute('''
+    SELECT nome FROM clienteS
+    UNION
+    SELECT nome FROM fornecedores
+''')
+nomes = cursor.fetchall()
+print(nomes)
 
 conn.commit()
 conn.close()

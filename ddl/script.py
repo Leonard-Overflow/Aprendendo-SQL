@@ -12,5 +12,3 @@ cursor = conn.cursor()
 cursor.execute(sql)
 conn.commit()
 conn.close()
-
-print("deu certo")
